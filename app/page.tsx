@@ -18,7 +18,7 @@ type HuffmanNode = {
 
 const getFrequencyData = (text: string) => {
   const freq: { [key: string]: number } = {}
-  for (let char of text) {
+  for (const char of text) {
     freq[char] = (freq[char] || 0) + 1
   }
   return Object.entries(freq).map(([char, count]) => ({ char, count }))
@@ -26,7 +26,7 @@ const getFrequencyData = (text: string) => {
 
 const buildHuffmanTree = (text: string): HuffmanNode => {
   const freq: { [key: string]: number } = {}
-  for (let char of text) {
+  for (const char of text) {
     freq[char] = (freq[char] || 0) + 1
   }
 
@@ -172,7 +172,7 @@ export default function HuffmanCodingVisualizer() {
           <div className="mt-4 p-4 bg-muted rounded-lg">
             <h4 className="font-semibold mb-2">In-depth Explanation: Frequency Analysis</h4>
             <p>
-              Frequency analysis is the first step in Huffman coding. Here's what's happening:
+              Frequency analysis is the first step in Huffman coding. Here&apos;s what&apos;s happening:
             </p>
             <ol className="list-decimal list-inside mt-2 space-y-2">
               <li>We iterate through each character in the input text.</li>
@@ -182,7 +182,7 @@ export default function HuffmanCodingVisualizer() {
             </ol>
             <p className="mt-2">
               Characters that appear more frequently will be assigned shorter codes, which is the key to
-              Huffman coding's compression efficiency. This step helps us identify which characters should
+              Huffman coding&apos;s compression efficiency. This step helps us identify which characters should
               get shorter codes.
             </p>
           </div>
@@ -192,12 +192,12 @@ export default function HuffmanCodingVisualizer() {
           <div className="mt-4 p-4 bg-muted rounded-lg">
             <h4 className="font-semibold mb-2">In-depth Explanation: Building the Huffman Tree</h4>
             <p>
-              The Huffman tree is a binary tree that determines the codes for each character. Here's how it's built:
+              The Huffman tree is a binary tree that determines the codes for each character. Here&apos;s how it&apos;s built:
             </p>
             <ol className="list-decimal list-inside mt-2 space-y-2">
               <li>Start with a list of nodes, one for each character, weighted by their frequency.</li>
               <li>Repeatedly take the two nodes with the lowest frequencies and combine them into a new node.</li>
-              <li>The new node's frequency is the sum of its two child nodes.</li>
+              <li>The new node&apos;s frequency is the sum of its two child nodes.</li>
               <li>Add this new node back to the list.</li>
               <li>Repeat steps 2-4 until only one node remains (the root of the Huffman tree).</li>
             </ol>
@@ -212,12 +212,12 @@ export default function HuffmanCodingVisualizer() {
           <div className="mt-4 p-4 bg-muted rounded-lg">
             <h4 className="font-semibold mb-2">In-depth Explanation: Encoding</h4>
             <p>
-              The encoding process uses the Huffman tree to assign unique binary codes to each character. Here's how it works:
+              The encoding process uses the Huffman tree to assign unique binary codes to each character. Here&apos;s how it works:
             </p>
             <ol className="list-decimal list-inside mt-2 space-y-2">
               <li>Start at the root of the Huffman tree.</li>
-              <li>For each character, trace the path from the root to the character's leaf node.</li>
-              <li>Assign '0' for each left branch and '1' for each right branch along this path.</li>
+              <li>For each character, trace the path from the root to the character&apos;s leaf node.</li>
+              <li>Assign &apos;0&apos; for each left branch and &apos;1&apos; for each right branch along this path.</li>
               <li>The sequence of 0s and 1s forms the code for that character.</li>
               <li>Replace each character in the original text with its corresponding code.</li>
             </ol>
@@ -393,7 +393,7 @@ export default function HuffmanCodingVisualizer() {
                     <p>
                       In this step, we count how often each character appears in the input text. Characters
                       that appear more frequently will be assigned shorter codes, which is the key to
-                      Huffman coding's compression efficiency.
+                      Huffman coding&apos;s compression efficiency.
                     </p>
                   </div>
                   <div>
@@ -409,8 +409,8 @@ export default function HuffmanCodingVisualizer() {
                     <h3 className="text-lg font-semibold">Step 3: Encoding</h3>
                     <p>
                       We traverse the Huffman tree to assign binary codes to each character. Left branches
-                      are labeled with '0' and right branches with '1'. The path from the root to a
-                      character's leaf node becomes its code. We then replace each character in the
+                      are labeled with &apos;0&apos; and right branches with &apos;1&apos;. The path from the root to a
+                      character&apos;s leaf node becomes its code. We then replace each character in the
                       original text with its corresponding code.
                     </p>
                   </div>
@@ -418,7 +418,7 @@ export default function HuffmanCodingVisualizer() {
                     <h3 className="text-lg font-semibold">Compression Analysis</h3>
                     <p>
                       We compare the size of the original text (assuming 8 bits per character) with the
-                      size of the encoded text. The difference shows how much space we've saved through
+                      size of the encoded text. The difference shows how much space we&apos;ve saved through
                       Huffman coding. This compression is lossless, meaning we can fully recover the
                       original text from the encoded version.
                     </p>
